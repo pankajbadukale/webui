@@ -14,7 +14,6 @@
 <body>
   <webui-app>Loading...</webui-app>
 
-  
 
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
     <script>
@@ -22,7 +21,7 @@
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-
+<script src="https://npmcdn.com/angular2-google-maps@0.10.0/bundles/angular2-google-maps.js"></script>
   
 
 

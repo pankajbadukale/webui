@@ -1,0 +1,40 @@
+// Mixins
+// --------------------------------------------------
+
+// Utilities
+@import "./src/app/bootstrap-scss/bootstrap/mixins/hide-text";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/opacity";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/image";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/labels";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/reset-filter";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/resize";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/responsive-visibility";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/size";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/tab-focus";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/reset-text";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/text-emphasis";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/text-overflow";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/vendor-prefixes";
+
+// Components
+@import "./src/app/bootstrap-scss/bootstrap/mixins/alerts";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/buttons";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/panels";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/pagination";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/list-group";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/nav-divider";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/forms";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/progress-bar";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/table-row";
+
+// Skins
+@import "./src/app/bootstrap-scss/bootstrap/mixins/background-variant";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/border-radius";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/gradients";
+
+// Layout
+@import "./src/app/bootstrap-scss/bootstrap/mixins/clearfix";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/center-block";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/nav-vertical-align";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/grid-framework";
+@import "./src/app/bootstrap-scss/bootstrap/mixins/grid";

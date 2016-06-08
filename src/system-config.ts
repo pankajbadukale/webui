@@ -3,6 +3,7 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'angular2-google-maps': 'vendor/angular2-google-maps'
 };
 
 /** User packages configuration. */
@@ -30,6 +31,12 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/google-map',
+  'app/filter-hotel',
+  'app/search-hotel',
+  'app/hotel-list',
+  'app/hotel-details',
+  'app/+restaurants-in-city',
   /** @cli-barrel */
 ];
 

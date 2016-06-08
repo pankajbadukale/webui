@@ -1,74 +1,55 @@
 import { Component } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
 
-import {
-  MapsAPILoader,
-  NoOpMapsAPILoader,
-  MouseEvent,
-  ANGULAR2_GOOGLE_MAPS_PROVIDERS,
-  ANGULAR2_GOOGLE_MAPS_DIRECTIVES
-} from 'angular2-google-maps/core';
+import { RestaurantsInCityComponent } from './+restaurants-in-city/restaurants-in-city.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { HotelListComponent } from './hotel-list/hotel-list.component';
+
+import { WebuiService } from './webui.service';
+import { HotelBusService } from './hotel-bus.service';
+
 
 @Component({
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
   styleUrls: ['../app.css'],
-  directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
-  providers: [ANGULAR2_GOOGLE_MAPS_PROVIDERS]
+  directives: [GoogleMapComponent, HotelListComponent],
+  providers: [WebuiService, HTTP_PROVIDERS, HotelBusService]
 })
 export class WebuiAppComponent {
-  title = 'webui works!';
-  
-  // google maps zoom level
-  zoom: number = 8;
-  
-  // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
-  
-  markers: marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
-	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
-		  draggable: false
-	  },
-	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'C',
-		  draggable: true
-	  }
-  ]
-  
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
-  }
-  
-  mapClicked($event: MouseEvent) {
-    this.markers.push({
-      lat: $event.coords.lat,
-      lng: $event.coords.lng,
-      draggable: true
-    });
-  }
-  
-  markerDragEnd(m: marker, $event: MouseEvent) {
-    console.log('dragEnd', m, $event);
-  }
+    public title = "pankaj";    
+
+    constructor(private _webuiService: WebuiService, private _hotelBus: HotelBusService) {
+      //get getLocation
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+              this._hotelBus.myLocation =  {
+                lat: position.coords.latitude, 
+                lng: position.coords.longitude
+              };
+              this._webuiService.nearestRestaurants(this._hotelBus.myLocation).subscribe( result => {
+                  console.log(result);
+                  
+                  //get all markers
+                  for(let obj of result) {
+                    this._hotelBus.geoMarker.push({
+                      lat: obj.lat,
+                      lng: obj.lng,
+                      label: obj.headerTitle,
+                      draggable: false
+                    });
+                  }
+
+              });
+          });
+      } else {
+        console.log(`Geolocation is not supported by this browser.`);
+      }
+    }
 }
 
-
-// just an interface for type safety.
-interface marker {
+interface geomark {
 	lat: number;
 	lng: number;
-	label?: string;
-	draggable: boolean;
 }

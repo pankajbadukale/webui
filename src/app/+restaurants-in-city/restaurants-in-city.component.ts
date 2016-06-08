@@ -6,7 +6,6 @@ import { HotelDetailsComponent } from '../hotel-details/hotel-details.component'
   moduleId: module.id,
   selector: 'app-restaurants-in-city',
   templateUrl: 'restaurants-in-city.component.html',
-  styleUrls: ['../../app.css'],
   directives: [ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS]
 })

@@ -1,0 +1,13 @@
+form.search-form-section {
+    div.input-group {
+        width: 100%;
+        input.form-control  {
+            width: 22%;
+            transition: width 1s ease;
+            &:focus {
+                width: 100%;
+                transition: width 1s ease;
+            }
+        }
+    }
+}

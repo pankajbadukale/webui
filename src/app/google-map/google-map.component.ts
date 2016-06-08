@@ -14,7 +14,6 @@ import {
   moduleId: module.id,
   selector: 'app-google-map',
   templateUrl: 'google-map.component.html',
-  styleUrls: ['../../app.css'],
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
   providers: [HotelBusService]
 })
@@ -33,23 +32,10 @@ export class GoogleMapComponent implements OnInit {
   constructor(private _map: MapsAPILoader, private _hotelBus: HotelBusService) {
     this._hotelBus = _hotelBus;
 
-    this.lat = this._hotelBus.myLocation.lat;
-    this.lng = this._hotelBus.myLocation.lng;
+    this.lat = 18.5631999;
+    this.lng = 73.7770309;
 
-    this.markers = this._hotelBus.geoMarker;
-
-    console.log('this is constructor message of google map');
-    setTimeout(() => {
-      console.log(this.markers);
-    }, 5000);
-    
-  }
-
-  ngOnInit() {
-    console.log('this is init function message');
-  }
-  
-  /*markers: marker[] = [
+    this.markers = [
 	  {
 		  lat: 51.673858,
 		  lng: 7.815982,
@@ -68,8 +54,18 @@ export class GoogleMapComponent implements OnInit {
 		  label: 'C',
 		  draggable: true
 	  }
-  ];*/
-  
+  ];
+
+    console.log('this is constructor message of google map');
+    setTimeout(() => {
+      console.log(this.markers);
+    }, 5000);
+    
+  }
+
+  ngOnInit() {
+    console.log('this is init function message');
+  }  
   
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)

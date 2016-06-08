@@ -13,7 +13,6 @@ import { HotelBusService } from './hotel-bus.service';
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
-  styleUrls: ['../app.css'],
   directives: [GoogleMapComponent, HotelListComponent],
   providers: [WebuiService, HTTP_PROVIDERS, HotelBusService]
 })
@@ -28,7 +27,8 @@ export class WebuiAppComponent {
                 lat: position.coords.latitude, 
                 lng: position.coords.longitude
               };
-              this._webuiService.nearestRestaurants(this._hotelBus.myLocation).subscribe( result => {
+              console.log(this._hotelBus.myLocation);
+              /* this._webuiService.nearestRestaurants(this._hotelBus.myLocation).subscribe( result => {
                   console.log(result);
                   
                   //get all markers
@@ -41,7 +41,7 @@ export class WebuiAppComponent {
                     });
                   }
 
-              });
+              });*/
           });
       } else {
         console.log(`Geolocation is not supported by this browser.`);

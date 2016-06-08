@@ -7,7 +7,6 @@ import { SearchHotelComponent } from '../search-hotel/search-hotel.component';
   moduleId: module.id,
   selector: 'app-hotel-list',
   templateUrl: 'hotel-list.component.html',
-  styleUrls: ['../../app.css'],
   directives: [FilterHotelComponent, SearchHotelComponent]
 })
 export class HotelListComponent implements OnInit {

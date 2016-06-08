@@ -11,7 +11,7 @@
 // Reset and dependencies
 @import "./src/app/bootstrap-scss/bootstrap/normalize";
 @import "./src/app/bootstrap-scss/bootstrap/print";
-@import "./src/app/bootstrap-scss/bootstrap/glyphicons";
+//@import "./src/app/bootstrap-scss/bootstrap/glyphicons";
 
 // Core CSS
 @import "./src/app/bootstrap-scss/bootstrap/scaffolding";
@@ -30,8 +30,8 @@
 @import "./src/app/bootstrap-scss/bootstrap/navs";
 @import "./src/app/bootstrap-scss/bootstrap/navbar";
 //@import "./src/app/bootstrap-scss/bootstrap/breadcrumbs";
-//@import "./src/app/bootstrap-scss/bootstrap/pagination";
-//@import "./src/app/bootstrap-scss/bootstrap/pager";
+@import "./src/app/bootstrap-scss/bootstrap/pagination";
+@import "./src/app/bootstrap-scss/bootstrap/pager";
 @import "./src/app/bootstrap-scss/bootstrap/labels";
 @import "./src/app/bootstrap-scss/bootstrap/badges";
 @import "./src/app/bootstrap-scss/bootstrap/jumbotron";
@@ -54,3 +54,6 @@
 // Utility classes
 @import "./src/app/bootstrap-scss/bootstrap/utilities";
 @import "./src/app/bootstrap-scss/bootstrap/responsive-utilities";
+
+//font awesome
+@import './src/app/bootstrap-scss/font-awesome/font-awesome';

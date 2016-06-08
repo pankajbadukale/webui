@@ -1,30 +1,104 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+<div id="header">
+  <div class="logo">
+    <a href="index.html">
+      <span class="fa fa-home marker"></span>
+      <span class="logoText">reales</span>
+    </a>
+  </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="">
+  <div class="search">
+    <span class="fa fa-search searchIcon icon-magnifier"></span>
+    <input placeholder="Search..." type="text">
+  </div>
+  <div class="headerUserWraper">
+    <a class="userHandler dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-user"></span><span class="counter">5</span></a>
+    <a class="headerUser dropdown-toggle" data-toggle="dropdown" href="#">
+      <img alt="avatar" class="avatar headerAvatar pull-left" src="images/avatar-1.png">
+      <div class="userTop pull-left">
+        <span class="headerUserName">John Smith</span> <span class="fa fa-angle-down"></span>
+      </div>
+      <div class="clearfix"></div>
+    </a>
+    <div class="dropdown-menu pull-right userMenu" role="menu">
+      <div class="mobAvatar">
+        <img alt="avatar" class="avatar mobAvatarImg" src="images/avatar-1.png">
+        <div class="mobAvatarName">John Smith</div>
+      </div>
+      <ul>
+        <li><a href="#"><span class="icon-settings"></span>Settings</a></li>
+        <li><a href="profile.html"><span class="icon-user"></span>Profile</a></li>
+        <li><a href="#"><span class="icon-bell"></span>Notifications <span class="badge pull-right bg-red">5</span></a></li>
+        <li class="divider"></li>
+        <li><a href="#"><span class="icon-power"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="headerNotifyWraper">
+    <a class="headerNotify dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="notifyIcon icon-bell"></span>
+      <span class="counter">5</span>
+    </a>
+    <div class="dropdown-menu pull-right notifyMenu" role="menu">
+      <div class="notifyHeader">
+        <span>Notifications</span>
+        <a class="notifySettings icon-settings" href="#"></a>
+        <div class="clearfix"></div>
+      </div>
+      <ul class="notifyList">
+        <li>
+          <a href="#">
+            <img alt="avatar" class="avatar pull-left" src="images/avatar-1.png">
+            <div class="pulse border-grey"></div>
+            <div class="notify pull-left">
+              <div class="notifyName">Sed ut perspiciatis unde</div>
+              <div class="notifyTime">5 minutes ago</div>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="notifyRound notifyRound-red fa fa-envelope-o"></div>
+            <div class="pulse border-red"></div>
+            <div class="notify pull-left">
+              <div class="notifyName">Lorem Ipsum is simply dummy text</div>
+              <div class="notifyTime">20 minutes ago</div>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="notifyRound notifyRound-yellow fa fa-heart-o"></div>
+            <div class="pulse border-yellow"></div>
+            <div class="notify pull-left">
+              <div class="notifyName">It is a long established fact</div>
+              <div class="notifyTime">2 hours ago</div>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="notifyRound notifyRound-magenta fa fa-paper-plane-o"></div>
+            <div class="pulse border-magenta"></div>
+            <div class="notify pull-left">
+              <div class="notifyName">There are many variations</div>
+              <div class="notifyTime">1 day ago</div>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+      </ul>
+      <a class="notifyAll" href="#">See All</a>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
+
+    <!-- following steve`s theame -->
+    <div id="wrapper">
       <div class="row">
         <div class="col-md-8">
           <app-google-map></app-google-map>

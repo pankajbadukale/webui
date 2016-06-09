@@ -1,58 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef } from '@angular/core';
 
 import { HotelBusService } from '../hotel-bus.service';
 import {
-  SebmGoogleMap,
-  GoogleMapsAPIWrapper
+  MouseEvent,
+  GoogleMapsAPIWrapper,
+  ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
-
 
 @Component({
   moduleId: module.id,
   selector: 'app-google-map',
+  host:     {
+    '[class.app-google-map]':'true'
+  },
   templateUrl: 'google-map.component.html',
-  styleUrls: ['../../app.css'],
-  directives: [SebmGoogleMap],
-  providers: [HotelBusService, GoogleMapsAPIWrapper]
+  directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
+  providers: [HotelBusService, ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper]
 })
 
 export class GoogleMapComponent implements OnInit {
 
-  // google maps zoom level
-  public zoom: number = 8;
-
-  // initial center position for the map
-  lat: number = 18.5632141;
-  lng: number = 73.7771917;
-
-  markers: marker[] = [];
-
-  constructor(private _hotelBus: HotelBusService, private _map: GoogleMapsAPIWrapper) {
-    this._map.getCenter().then((data) => {
-      console.log("==============================================");
-      console.log(data);
-    }, (err) => {
-      console.log(err);
-    });
-  /*  this._hotelBus = _hotelBus;*/
-
-/*    this.lat = this._hotelBus.myLocation.lat;
-    this.lng = this._hotelBus.myLocation.lng;
-
-    this.markers = this._hotelBus.geoMarker;
-
-    console.log('this is constructor message of google map');
-    setTimeout(() => {
-      console.log(this.markers);
-    }, 5000);*/
-    
-  }
-
-  ngOnInit() {
-    console.log('this is init function message');
-  }
+// google maps zoom level
+  zoom: number = 8;
   
-  /*markers: marker[] = [
+  // initial center position for the map
+  lat: number = 51.673858;
+  lng: number = 7.815982;
+
+  markers: marker[] = [
 	  {
 		  lat: 51.673858,
 		  lng: 7.815982,
@@ -71,24 +46,42 @@ export class GoogleMapComponent implements OnInit {
 		  label: 'C',
 		  draggable: true
 	  }
-  ];*/
-  
-  
+  ];
+
+  constructor(private _mapsWrapper: GoogleMapsAPIWrapper) {}
+
+  ngOnInit() {
+  }
+
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
   
-  /*mapClicked($event: MouseEvent) {
-    this.markers.push({
+  mapClicked($event: MouseEvent) {
+/*    this.markers.push({
       lat: $event.coords.lat,
       lng: $event.coords.lng,
-      draggable: true
-    });
-  }*/
+      draggable: false
+    });*/
+  }
   
-  /*markerDragEnd(m: marker, $event: MouseEvent) {
+  markerDragEnd(m: marker, $event: MouseEvent) {
     console.log('dragEnd', m, $event);
-  }*/
+  }
+
+  changece() {
+    this.lat = 18.569022699999998;
+    this.lng = 73.7704439;
+    this.zoom = 16;
+
+    this.markers.push({
+      lat: this.lat,
+      lng: this.lng,
+      draggable: false,
+      isCenter: true,
+      label: 'Center',
+    });
+  }
 }
 
 
@@ -98,4 +91,5 @@ interface marker {
 	lng: number;
 	label?: string;
 	draggable: boolean;
+  isCenter?: boolean
 }

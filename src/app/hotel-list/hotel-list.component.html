@@ -2,8 +2,8 @@
   <!--<app-search-hotel></app-search-hotel>-->
 
   <!--List of restaurents-->
-<div class="col-md-4">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+        <div [ngClass]="{'col-md-6': _hotelService.pageView == 'both', 'col-md-4': _hotelService.pageView == 'list'}">
             <a href="single.html" class="card">
                 <div class="figure">
                     <img src="images/prop/1-1.png" alt="image">
@@ -45,7 +45,6 @@
                         <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
                     </ul>
         </div>
-</div>
 
 
 <!--It will animation and will come over the map section-->

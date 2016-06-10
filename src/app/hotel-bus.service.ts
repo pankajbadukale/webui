@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HotelBusService {
-
   public geoMarker: any[] = [];
 
   public myLocation: any = {
@@ -10,7 +9,24 @@ export class HotelBusService {
     lng: 0
   };
 
-  constructor() {}
+  pageView;
+
+  constructor() {
+    this.pageView = 'both';
+  }
+
+/**
+ * setPageView
+ * Function to change front page view to different way for tablet and web
+ * 
+ * @input String 
+ */
+  setPageView( pageView?: string ) {
+    console.log("form service", pageView);
+    this.pageView = pageView || 'both';
+  }
+
+
 
 }
 

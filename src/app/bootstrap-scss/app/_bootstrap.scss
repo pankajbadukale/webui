@@ -1,0 +1,11 @@
+//override bootstrap css
+
+.modal {
+    top: -100%;
+    transition: top 1s ease;
+    &.ht-open {
+        transition: top 1s ease;
+        top: auto;
+        display: block;
+    }
+}

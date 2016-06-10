@@ -14,6 +14,7 @@ import {
     '[class.app-google-map]':'true'
   },
   templateUrl: 'google-map.component.html',
+  styleUrls: ['google-map.component.css'],
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
   providers: [HotelBusService, ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper]
 })

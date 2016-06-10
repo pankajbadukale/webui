@@ -13,6 +13,7 @@ import { HotelBusService } from './hotel-bus.service';
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
+  styleUrls: ['webui.component.css'],
   directives: [GoogleMapComponent, HotelListComponent],
   providers: [WebuiService, HTTP_PROVIDERS, HotelBusService]
 })

@@ -34,9 +34,8 @@ export class SearchHotelComponent implements OnInit {
   }
 
   changePageView(e) {
-    let selectedValue = e.srcElement.options[e.srcElement.selectedIndex].value;
-    console.log(selectedValue);
-    this._hotelService.setPageView(selectedValue);
+    console.log(e.target.value);
+    this._hotelService.setPageView(e.target.value);
   }
 
 }

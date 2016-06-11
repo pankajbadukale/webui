@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 import { HotelBusService } from '../hotel-bus.service';
 
@@ -6,11 +7,13 @@ import { HotelBusService } from '../hotel-bus.service';
   moduleId: module.id,
   selector: 'app-search-hotel',
   templateUrl: 'search-hotel.component.html',
-  styleUrls: ['search-hotel.component.css']
+  styleUrls: ['search-hotel.component.css'],
+  directives: [NgClass]
 })
 export class SearchHotelComponent implements OnInit {
   pageView: string;
   pageViewOptions: Object[];
+  showHideFilters: boolean;
 
   constructor(private _hotelService: HotelBusService) {
     this.pageViewOptions = [
@@ -19,9 +22,15 @@ export class SearchHotelComponent implements OnInit {
       { value: 'list', text: 'List'}
     ];
     this.pageView = 'both';
+    this.showHideFilters = false;
   }
 
   ngOnInit() {
+  }
+
+  toggleFilter() {
+    console.log(this.showHideFilters);
+    this.showHideFilters = !this.showHideFilters;
   }
 
   changePageView(e) {

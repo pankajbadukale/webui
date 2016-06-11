@@ -1,19 +1,16 @@
-  <div class="search">
-    <span class="fa fa-search searchIcon icon-magnifier"></span>
-    <input placeholder="Search..." type="text">
-    <button type="button" class="btn btn-default">Filter</button>
-
-    <select class="dropdown" (change)="changePageView($event)">
-      <option *ngFor="let opt of pageViewOptions" value="{{opt.value}}">{{opt.text}}</option>
-    </select>
-  </div>
-
-
-<div class="modal">
+<div class="search">
+  <span class="fa fa-search searchIcon icon-magnifier"></span>
+  <input placeholder="Search..." type="text">
+  <label (click)="toggleFilter()" class="btn btn-default filter-button">Filter</label>
+  <select class="dropdown" (change)="changePageView($event)">
+    <option *ngFor="let opt of pageViewOptions" value="{{opt.value}}">{{opt.text}}</option>
+  </select>
+</div>
+<div class="modal" [ngClass]="{'ht-open': showHideFilters}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" (click)="toggleFilter()"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Modal title</h4>
       </div>
       <div class="modal-body">

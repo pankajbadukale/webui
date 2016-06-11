@@ -5,7 +5,7 @@
     transition: top 1s ease;
     &.ht-open {
         transition: top 1s ease;
-        top: auto;
+        top: 0;
         display: block;
     }
 }

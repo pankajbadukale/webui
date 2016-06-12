@@ -1,11 +1,12 @@
 <div class="search">
   <span class="fa fa-search searchIcon icon-magnifier"></span>
   <input placeholder="Search..." type="text">
-  <label (click)="toggleFilter()" class="btn btn-default filter-button">Filter</label>
+  <label (click)="stateChangeHandler()" class="btn btn-default filter-button">Filter</label>
   <select class="dropdown" (change)="changePageView($event)">
     <option *ngFor="let opt of pageViewOptions" [value]="opt.value">{{opt.text}}</option>
   </select>
 </div>
+
 <div class="modal" [ngClass]="{'ht-open': showHideFilters}">
   <div class="modal-dialog">
     <div class="modal-content">

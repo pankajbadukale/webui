@@ -6,7 +6,9 @@
       <app-google-map></app-google-map>
     </div>
     <div [ngClass]="{'col-md-4': _hotelService.pageView == 'both' , 'col-md-12': _hotelService.pageView == 'list', 'hide': _hotelService.pageView == 'map'}">
-      <app-hotel-list></app-hotel-list>
+      <div class="right-list-section">
+        <app-hotel-list></app-hotel-list>
+      </div>
     </div>
   </div>
 </div>

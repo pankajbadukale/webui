@@ -2,6 +2,8 @@ import { Component, TemplateRef } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 
+import { ANGULAR2_GOOGLE_MAPS_PROVIDERS } from 'angular2-google-maps/core';
+
 import { RestaurantsInCityComponent } from './+restaurants-in-city/restaurants-in-city.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
@@ -19,7 +21,7 @@ import { defaultImages } from './hotel-web.static.class';
   templateUrl: 'webui.component.html',
   styleUrls: ['webui.component.css'],
   directives: [GoogleMapComponent, HotelListComponent, HeaderComponent, FooterComponent, NgClass],
-  providers: [WebuiService, HTTP_PROVIDERS, HotelBusService, defaultImages, TemplateRef]
+  providers: [WebuiService, HTTP_PROVIDERS, HotelBusService, defaultImages, ANGULAR2_GOOGLE_MAPS_PROVIDERS]
 })
 export class WebuiAppComponent {
     public title = "pankaj";

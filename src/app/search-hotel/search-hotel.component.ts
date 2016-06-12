@@ -29,7 +29,6 @@ export class SearchHotelComponent implements OnInit {
   }
 
   toggleFilter() {
-    console.log(this.showHideFilters);
     this.showHideFilters = !this.showHideFilters;
   }
 

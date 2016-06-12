@@ -1,9 +1,13 @@
 import { Component, OnInit,ElementRef } from '@angular/core';
 
+import { GoogleMapControllerComponent } from '../google-map-controller';
+
 import { HotelBusService } from '../hotel-bus.service';
 import {
+  MapsAPILoader,
+  NoOpMapsAPILoader,
   MouseEvent,
-  GoogleMapsAPIWrapper,
+  ANGULAR2_GOOGLE_MAPS_PROVIDERS,
   ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
 
@@ -18,8 +22,8 @@ import { defaultImages } from '../hotel-web.static.class';
   },
   templateUrl: 'google-map.component.html',
   styleUrls: ['google-map.component.css'],
-  directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
-  providers: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper]
+  directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapControllerComponent],
+  providers: [ANGULAR2_GOOGLE_MAPS_PROVIDERS]
 })
 
 export class GoogleMapComponent implements OnInit {
@@ -35,7 +39,7 @@ export class GoogleMapComponent implements OnInit {
 
   public defaultImgUrl: string;
 
-  constructor(private _mapsWrapper: GoogleMapsAPIWrapper, private _htS: HotelBusService) {}
+  constructor(private _htS: HotelBusService) {}
 
   ngOnInit() {
     this.defaultImgUrl = defaultImages.restaurent;

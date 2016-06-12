@@ -106,3 +106,26 @@ INNER JOIN rest_geo_location AS geo
 ON cusine.rest_short_details_id = geo.rest_short_details_id
 INNER JOIN rest_short_details AS rest 
 ON rest.rest_short_details_id = geo.rest_short_details_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search Manager
+1. apache slr / Apache Lucene
+https://github.com/gsf/node-solr
+
+C:\Windows\System32\cmd.exe

@@ -5,7 +5,7 @@
       [disableDefaultUI]="false"
       [zoomControl]="false"
       (mapClick)="mapClicked($event)">
-    
+       <app-google-map-controller></app-google-map-controller> 
       <sebm-google-map-marker 
           *ngFor="let m of _htS.geoMarker; let i = index"
           (markerClick)="clickedMarker(m.label, i)"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 
@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { WebuiService } from './webui.service';
 import { HotelBusService } from './hotel-bus.service';
+import { defaultImages } from './hotel-web.static.class';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { HotelBusService } from './hotel-bus.service';
   templateUrl: 'webui.component.html',
   styleUrls: ['webui.component.css'],
   directives: [GoogleMapComponent, HotelListComponent, HeaderComponent, FooterComponent, NgClass],
-  providers: [WebuiService, HTTP_PROVIDERS, HotelBusService]
+  providers: [WebuiService, HTTP_PROVIDERS, HotelBusService, defaultImages, TemplateRef]
 })
 export class WebuiAppComponent {
     public title = "pankaj";
@@ -32,21 +33,9 @@ export class WebuiAppComponent {
                 lat: position.coords.latitude, 
                 lng: position.coords.longitude
               };
-              //console.log(this._hotelService.myLocation);
-              /* this._webuiService.nearestRestaurants(this._hotelService.myLocation).subscribe( result => {
-                  console.log(result);
-                  
-                  //get all markers
-                  for(let obj of result) {
-                    this._hotelService.geoMarker.push({
-                      lat: obj.lat,
-                      lng: obj.lng,
-                      label: obj.headerTitle,
-                      draggable: false
-                    });
-                  }
-
-              });*/
+               this._webuiService.nearestRestaurants(this._hotelService.myLocation).subscribe( result => {
+                 this._hotelService.addMarkers(result);
+               });
           });
       } else {
         console.log(`Geolocation is not supported by this browser.`);

@@ -3,37 +3,42 @@
 
   <!--List of restaurents-->
 
-        <div [ngClass]="{'col-md-6': _hotelService.pageView == 'both', 'col-md-4': _hotelService.pageView == 'list'}">
-            <a href="single.html" class="card">
+        <div [ngClass]="{'col-md-6': _hotelService.pageView == 'both', 'col-md-4': _hotelService.pageView == 'list'}" *ngFor="let item of _hotelService.paginationResultCurrent">
+            <a class="card">
                 <div class="figure">
-                    <img src="images/prop/1-1.png" alt="image">
-                    <div class="figCaption">
+                    <img src="{{defaultImgUrl}}" alt="image">
+                    <!--<div class="figCaption">
                         <div>$1,550,000</div>
                         <span class="icon-eye"> 200</span>
                         <span class="icon-heart"> 54</span>
                         <span class="icon-bubble"> 13</span>
-                    </div>
-                    <div class="figView"><span class="icon-eye"></span></div>
-                    <div class="figType">FOR SALE</div>
+                    </div>-->
+                    <!--<div class="figView"><span class="icon-eye"></span></div>-->
+                    <div class="figType">OPEN</div>
                 </div>
-                <h2>Modern Residence in New York</h2>
-                <div class="cardAddress"><span class="icon-pointer"></span> 39 Remsen St, Brooklyn, NY 11201, USA</div>
-                <div class="cardRating">
+                <h2>{{item.rest_header_title}}</h2>
+                <div class="cardAddress"><span class="icon-pointer"></span>{{item.rest_address}}</div>
+                <div class="cardAddress"><span class="icon-pointer"></span>{{item.rest_known_for}}</div>
+                <div class="cardAddress"><span class="icon-pointer"></span>{{item.cusine}}</div>
+                <!--<div class="cardRating">
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star-o"></span>
                     (146)
-                </div>
-                <ul class="cardFeat">
+                </div>-->
+                <!--<ul class="cardFeat">
                     <li><span class="fa fa-moon-o"></span> 3</li>
                     <li><span class="icon-drop"></span> 2</li>
                     <li><span class="icon-frame"></span> 3430 Sq Ft</li>
-                </ul>
+                </ul>-->
                 <div class="clearfix"></div>
             </a>
         </div>
+
+
+        
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <ul class="pagination">
                         <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>

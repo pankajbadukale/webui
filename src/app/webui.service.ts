@@ -7,16 +7,16 @@ import 'rxjs/add/operator/map';
 //http://stackoverflow.com/questions/37073705/property-catch-does-not-exist-on-type-observableany
 import 'rxjs/add/operator/catch';
 
+import { shortDetails, geoLocation } from './hotel-web.interface';
+import { urls } from './hotel-web.static.class';
+
 @Injectable()
 export class WebuiService {
 
-  private _baseUrl: string = "http://localhost:8080/api/restaurant/";
-
   constructor (private http: Http) {}
 
-  nearestRestaurants (latLon: any): any {
-    let reqURL = `${this._baseUrl}getLocations/${latLon.lat}/${latLon.lng}/1000`;
-    return this.http.get(reqURL)
+  nearestRestaurants (latLon: geoLocation): any {
+    return this.http.get(urls.nearbyRestUrl(latLon))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

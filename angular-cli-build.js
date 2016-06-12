@@ -13,7 +13,8 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'angular2-google-maps/**/*.+(js|js.map)',
-      'font-awesome/fonts/*.*'
+      'font-awesome/fonts/*.*',
+      'api/*.*'
     ]
   });
 };

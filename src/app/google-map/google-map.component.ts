@@ -7,6 +7,9 @@ import {
   ANGULAR2_GOOGLE_MAPS_DIRECTIVES
 } from 'angular2-google-maps/core';
 
+import { defaultImages } from '../hotel-web.static.class';
+
+
 @Component({
   moduleId: module.id,
   selector: 'app-google-map',
@@ -16,42 +19,26 @@ import {
   templateUrl: 'google-map.component.html',
   styleUrls: ['google-map.component.css'],
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
-  providers: [HotelBusService, ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper]
+  providers: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapsAPIWrapper]
 })
 
 export class GoogleMapComponent implements OnInit {
 
 // google maps zoom level
-  zoom: number = 8;
+  zoom: number = 16;
   
   // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
+  lat: number;
+  lng: number;
 
-  markers: marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
-	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
-		  draggable: false
-	  },
-	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'C',
-		  draggable: true
-	  }
-  ];
+  markers: marker[];
 
-  constructor(private _mapsWrapper: GoogleMapsAPIWrapper) {}
+  public defaultImgUrl: string;
+
+  constructor(private _mapsWrapper: GoogleMapsAPIWrapper, private _htS: HotelBusService) {}
 
   ngOnInit() {
+    this.defaultImgUrl = defaultImages.restaurent;
   }
 
   clickedMarker(label: string, index: number) {

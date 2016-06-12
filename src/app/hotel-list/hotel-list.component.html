@@ -1,8 +1,6 @@
 
-  <!--<app-search-hotel></app-search-hotel>-->
-
-  <!--List of restaurents-->
-
+    <!--List of restaurents-->
+    <div class="right-list-section">
         <div [ngClass]="{'col-md-6': _hotelService.pageView == 'both', 'col-md-4': _hotelService.pageView == 'list'}" *ngFor="let item of _hotelService.paginationResultCurrent">
             <a class="card">
                 <div class="figure">
@@ -36,9 +34,7 @@
                 <div class="clearfix"></div>
             </a>
         </div>
-
-
-        
+    </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <ul class="pagination">
                         <li class="disabled"><a href="#"><span class="fa fa-angle-left"></span></a></li>
@@ -50,7 +46,3 @@
                         <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
                     </ul>
         </div>
-
-
-<!--It will animation and will come over the map section-->
-<!--<app-filter-hotel></app-filter-hotel>-->

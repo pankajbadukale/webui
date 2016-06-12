@@ -39,6 +39,7 @@ const barrels: string[] = [
   'app/+restaurants-in-city',
   'app/header',
   'app/footer',
+  'app/user',
   /** @cli-barrel */
 ];
 

@@ -1,6 +1,11 @@
-import { Injectable } from '@angular/core';
+declare var window: any;
 
-import { marker, shortDetails, geoLocation } from './hotel-web.interface';
+
+
+
+import { Injectable, EventEmitter } from '@angular/core';
+
+import { marker, shortDetails, geoLocation, LatLngLiteral } from './hotel-web.interface';
 
 @Injectable()
 export class HotelBusService {
@@ -13,15 +18,30 @@ export class HotelBusService {
 
   public geoMarker: marker[] = [];
 
-  public myLocation: geoLocation = {
+  public myLocation: LatLngLiteral = {
     lat: 0,
     lng: 0
   };
+
+  public centerChange:EventEmitter<LatLngLiteral> = new EventEmitter();
 
   pageView: string;
 
   constructor() {
     this.pageView = 'both';
+
+    /******************************************/
+    window.opeObject = this;
+    /******************************************/
+  }
+
+  /**
+   * set center location of map
+   * in our case it will be user location
+   */
+  setMapCenter( newCenter: LatLngLiteral ) {
+    this.myLocation = newCenter;
+    this.centerChange.next(this.myLocation);
   }
 
 /**

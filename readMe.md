@@ -129,3 +129,12 @@ Search Manager
 https://github.com/gsf/node-solr
 
 C:\Windows\System32\cmd.exe
+
+
+
+
+
+
+
+Google Map Icons
+http://kml4earth.appspot.com/icons.html

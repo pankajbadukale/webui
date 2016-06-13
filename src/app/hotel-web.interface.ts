@@ -1,5 +1,7 @@
 // just an interface for type safety.
 
+export * from 'angular2-google-maps/services/google-maps-types';
+
 export interface geoLocation {
   lat: number,
   lng: number

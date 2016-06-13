@@ -31,13 +31,13 @@ export class WebuiAppComponent {
       //get getLocation
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
-              this._hotelService.myLocation =  {
+              this._hotelService.setMapCenter({
                 lat: position.coords.latitude, 
                 lng: position.coords.longitude
-              };
-               this._webuiService.nearestRestaurants(this._hotelService.myLocation).subscribe( result => {
-                 this._hotelService.addMarkers(result);
-               });
+              });
+              this._webuiService.nearestRestaurants(this._hotelService.myLocation).subscribe( result => {
+                this._hotelService.addMarkers(result);
+              });
           });
       } else {
         console.log(`Geolocation is not supported by this browser.`);

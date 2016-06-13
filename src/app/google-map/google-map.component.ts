@@ -21,7 +21,6 @@ import { defaultImages } from '../hotel-web.static.class';
     '[class.app-google-map]':'true'
   },
   templateUrl: 'google-map.component.html',
-  styleUrls: ['google-map.component.css'],
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, GoogleMapControllerComponent],
   providers: [ANGULAR2_GOOGLE_MAPS_PROVIDERS]
 })

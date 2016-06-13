@@ -12,7 +12,6 @@ import { defaultImages } from '../hotel-web.static.class';
   moduleId: module.id,
   selector: 'app-hotel-list',
   templateUrl: 'hotel-list.component.html',
-  styleUrls: ['hotel-list.component.css'],
   directives: [SearchHotelComponent, NgClass, NgFor]
 })
 export class HotelListComponent implements OnInit {
@@ -24,5 +23,11 @@ export class HotelListComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getCusines( cusines ) {
+    return cusines.split(',');
+  }
+
+  
 
 }

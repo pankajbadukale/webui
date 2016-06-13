@@ -19,7 +19,6 @@ import { defaultImages } from './hotel-web.static.class';
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
-  styleUrls: ['webui.component.css'],
   directives: [GoogleMapComponent, HotelListComponent, HeaderComponent, FooterComponent, NgClass],
   providers: [WebuiService, HTTP_PROVIDERS, HotelBusService, defaultImages, ANGULAR2_GOOGLE_MAPS_PROVIDERS]
 })

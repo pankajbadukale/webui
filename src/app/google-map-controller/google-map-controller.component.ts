@@ -9,8 +9,7 @@ import { HotelBusService } from '../hotel-bus.service';
 @Component({
   moduleId: module.id,
   selector: 'app-google-map-controller',
-  templateUrl: 'google-map-controller.component.html',
-  styleUrls: ['google-map-controller.component.css']
+  templateUrl: 'google-map-controller.component.html'
 })
 export class GoogleMapControllerComponent implements OnInit {
 

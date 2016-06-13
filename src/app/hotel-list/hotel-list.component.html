@@ -15,9 +15,14 @@
                     <div class="figType">OPEN</div>
                 </div>
                 <h2>{{item.rest_header_title}}</h2>
-                <div class="cardAddress"><span class="icon-pointer"></span>{{item.rest_address}}</div>
-                <div class="cardAddress"><span class="icon-pointer"></span>{{item.rest_known_for}}</div>
-                <div class="cardAddress"><span class="icon-pointer"></span>{{item.cusine}}</div>
+                <div class="cardAddress fa fa-location-arrow rest_addr"><span class="icon-pointer"></span> {{item.rest_address}}</div>
+                <div class="cardAddress fa fa-bell-o knt_for"><span class="icon-pointer"></span> {{item.rest_known_for}}</div>
+                <div class="cardAddress cusines"><span class="icon-pointer"></span>
+                    <i class="fa fa-certificate" *ngFor="let cusine of getCusines(item.cusine)"> {{cusine}}</i>
+                    <i class="fa fa-arrows-h dist_from_you">
+                        <span class="icon-pointer"></span> {{ item.distance | number }} Meter From You
+                    </i>
+                </div>
                 <!--<div class="cardRating">
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>

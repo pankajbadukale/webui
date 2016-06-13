@@ -7,7 +7,6 @@ import { HotelBusService } from '../hotel-bus.service';
   moduleId: module.id,
   selector: 'app-search-hotel',
   templateUrl: 'search-hotel.component.html',
-  styleUrls: ['search-hotel.component.css'],
   directives: [NgClass]
 })
 export class SearchHotelComponent implements OnInit {

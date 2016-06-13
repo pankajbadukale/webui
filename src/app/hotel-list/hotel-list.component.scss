@@ -1,6 +1,60 @@
 .right-list-section  {
     height: 565px;
     overflow: auto;
+    .card {
+        padding: 5px;
+        border: 1px solid $color_persian_green_approx;
+        .figure {
+            h1 {
+                color: $color_pickled_bluewood_approx;
+            }
+        }
+        .cardAddress {
+            font-size: 14px;
+            padding: 0 10px 5px 10px;
+            margin: 0;
+            &.fa {
+                &.fa-location-arrow {
+                    &.rest_addr {
+                        color: $color_persian_green_approx;
+                        &:before {
+                            color: $color_puerto_rico_approx;
+                        }
+                    }
+                }
+                &.fa-bell-o {
+                    &.knt_for {
+                        color: $color_persian_red_approx;
+                        &:before {
+                            color: $color_cinnabar_approx;
+                        }
+                    }
+                }
+                &fa-arrows-h {
+                    &.dist_from_you {
+                        &:before {
+
+                        }
+                    }
+                }
+            }
+            &.cusines {
+                color: $color_pine_green_approx;
+                .fa {
+                    &.fa-certificate {
+                        margin-left: 5px;
+                        &:before {
+                            color: $color_disco_approx;
+                        }
+                    }
+                }
+                .dist_from_you {
+                    margin-left: 5px;
+                    color: $dark_blue;
+                }
+            }
+        }
+    }
 }
 ul.pagination {
     margin: 0;

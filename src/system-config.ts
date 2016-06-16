@@ -41,6 +41,7 @@ const barrels: string[] = [
   'app/footer',
   'app/user',
   'app/google-map-controller',
+  'app/hotel',
   /** @cli-barrel */
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
 
 import { SearchHotelComponent } from '../search-hotel/search-hotel.component';
 
@@ -6,7 +7,7 @@ import { SearchHotelComponent } from '../search-hotel/search-hotel.component';
   moduleId: module.id,
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  directives: [SearchHotelComponent]
+  directives: [SearchHotelComponent, ROUTER_DIRECTIVES]
 })
 export class HeaderComponent implements OnInit {
 

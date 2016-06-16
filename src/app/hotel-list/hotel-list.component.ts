@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgClass, NgFor } from '@angular/common';
+import { Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
 
 
 import { HotelDetailsComponent } from '../hotel-details/hotel-details.component';
@@ -12,7 +13,7 @@ import { defaultImages } from '../hotel-web.static.class';
   moduleId: module.id,
   selector: 'app-hotel-list',
   templateUrl: 'hotel-list.component.html',
-  directives: [SearchHotelComponent, NgClass, NgFor]
+  directives: [SearchHotelComponent, NgClass, NgFor, ROUTER_DIRECTIVES]
 })
 export class HotelListComponent implements OnInit {
   public defaultImgUrl: string;

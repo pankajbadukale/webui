@@ -2,14 +2,7 @@
 <!-- following steve`s theame -->
 <div id="wrapper">
   <div class="col-md-12">
-    <div [ngClass]="{'col-md-8': _hotelService.pageView == 'both' , 'col-md-12': _hotelService.pageView == 'map', 'hide': _hotelService.pageView == 'list'}">
-      <app-google-map></app-google-map>
-    </div>
-    <div [ngClass]="{'col-md-4': _hotelService.pageView == 'both' , 'col-md-12': _hotelService.pageView == 'list', 'hide': _hotelService.pageView == 'map'}">
-      
-        <app-hotel-list></app-hotel-list>
-      
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
 

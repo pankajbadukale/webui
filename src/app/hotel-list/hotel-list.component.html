@@ -2,7 +2,7 @@
     <!--List of restaurents-->
     <div class="right-list-section">
         <div [ngClass]="{'col-md-6': _hotelService.pageView == 'both', 'col-md-4': _hotelService.pageView == 'list'}" *ngFor="let item of _hotelService.paginationResultCurrent">
-            <a class="card">
+            <a class="card" [routerLink]="['/hdetails']">
                 <div class="figure">
                     <img src="{{defaultImgUrl}}" alt="image">
                     <!--<div class="figCaption">

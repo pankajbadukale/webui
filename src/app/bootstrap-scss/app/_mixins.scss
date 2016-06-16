@@ -416,6 +416,20 @@
 @mixin _img_url($name, $type) {}
 //set font properties
 // like font family, size, weight, color
-@mixin _font() {}
+@mixin _font($size: 12, $color:#fff, $weight:normal) {
+  font-size: em($size);
+  color: $color;
+  font-weight: $weight;
+}
 //set same size of padding and margin 
 @mixin _pad_margin() {}
+//set box layout
+@mixin _set_box($padding:10px, $margin: 10px, $border-size: 1px solid #000) {}
+//add postion with 4 dimentions
+@mixin _postions($type: relative, $top: 10px, $right: 10px, $bottom: 10px, $left: 10px) {
+  position: $type;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+}

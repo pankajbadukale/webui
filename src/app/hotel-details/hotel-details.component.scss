@@ -1,7 +1,27 @@
 .app-hotel-details {
     .app-google-map {
         .sebm-google-map-container {
-            height: 300px;
+            height: $px_300;
         }
+    }
+    .figure {
+        height: $px_300;
+        img {
+            height: $per_100;
+        }
+        .figType {
+            @include _font(18, $color_concrete_approx, bold);
+            @include background-gradient();
+            padding: $px_8;
+            &.address-type {
+                @include _postions(absolute, auto, $px_10, $px_10, auto);
+                background-color: $color_tulip_tree_approx;
+                @include _font(12, $color_concrete_approx, bold);
+                padding: $px_5;
+            }
+        }
+    }
+    .control-buttons {
+        border-bottom: $px_1 solid $color_gray_nurse_approx;
     }
 }

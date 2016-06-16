@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { GoogleMapComponent } from '../google-map/google-map.component';
 
 import { HotelBusService } from '../hotel-bus.service';
+import { defaultImages } from '../hotel-web.static.class';
 
 @Component({
   moduleId: module.id,
@@ -20,9 +21,11 @@ import { HotelBusService } from '../hotel-bus.service';
   ]
 })
 export class HotelDetailsComponent implements OnInit {
+  defaultImgUrl: string;
 
   constructor(private _hotelBusService: HotelBusService) {
     console.log(this._hotelBusService);
+    this.defaultImgUrl = defaultImages.restaurent;
   }
 
   ngOnInit() {

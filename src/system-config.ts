@@ -42,6 +42,14 @@ const barrels: string[] = [
   'app/user',
   'app/google-map-controller',
   'app/hotel',
+  'app/overview',
+  'app/photo',
+  'app/menu',
+  'app/review',
+  'app/feedback',
+  'app/+pr',
+  'app/+pr/+ok',
+  'app/faq',
   /** @cli-barrel */
 ];
 

@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { RestaurantsInCityComponent } from './restaurants-in-city.component';
+import { OverviewComponent } from './overview.component';
 
-describe('Component: RestaurantsInCity', () => {
+describe('Component: Overview', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [RestaurantsInCityComponent]);
+  beforeEachProviders(() => [OverviewComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([RestaurantsInCityComponent],
-      (component: RestaurantsInCityComponent) => {
+  it('should inject the component', inject([OverviewComponent],
+      (component: OverviewComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(RestaurantsInCityComponentTestController)
+    return builder.createAsync(OverviewComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(RestaurantsInCityComponent));
+        let query = fixture.debugElement.query(By.directive(OverviewComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,10 +37,10 @@ describe('Component: RestaurantsInCity', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-restaurants-in-city></app-restaurants-in-city>
+    <app-overview></app-overview>
   `,
-  directives: [RestaurantsInCityComponent]
+  directives: [OverviewComponent]
 })
-class RestaurantsInCityComponentTestController {
+class OverviewComponentTestController {
 }
 

@@ -22,6 +22,7 @@ import { HotelBusService } from './hotel-bus.service';
 @Routes([
    {  path: '/hdetails', component: HotelDetailsComponent},
    {  path: '/', component: HotelComponent}
+
 ])
 export class WebuiAppComponent {
   title: string = 'app';

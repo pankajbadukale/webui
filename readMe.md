@@ -38,17 +38,151 @@ DB schema
     rest_short_details_id     int 11 INDEXED
 
 6. hightlights
+    rest_id       int 11 INDEXED
+    highlight                   varchar 100
+
+    CREATE TABLE `myzomato`.`rest_hightlights` ( `rest_id` INT NULL , `highlight` VARCHAR(100) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`highlight`) ) ENGINE = InnoDB;
+INSERT INTO 
+	`myzomato`.`rest_hightlights` (`rest_id`, `highlight`) 
+SELECT 
+	id,
+	REPLACE( REPLACE(REPLACE (SUBSTRING_INDEX(SUBSTRING_INDEX(t.heighlights, ',', n.n), ',', -1), '[', ''), "]", ""), '"', "") as highlight
+FROM `sszomaoto`.`restaurents` t CROSS JOIN 
+(
+	SELECT a.N + b.N * 10 + 1 n
+	FROM 
+		(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+	   ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+		ORDER BY n
+) n
+WHERE n.n <= 1 + (LENGTH(t.heighlights) - LENGTH(REPLACE(t.heighlights, ',', '')))
+
+
+
+
+
 7. openclose days
 8. openclose timing
 9. phonenumbers
+    rest_id
+    contact varchar 15
+    CREATE TABLE `myzomato`.`rest_contact_numbers` ( `rest_id` INT NULL , `contact` VARCHAR(15) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`contact`) ) ENGINE = InnoDB;
+
+
 10. payment options
+    rest_id     int 11
+    option varchar 50
+
+    CREATE TABLE `myzomato`.`rest_payment_options` ( `rest_id` INT NULL , `option` VARCHAR(45) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`option`) ) ENGINE = InnoDB;
+INSERT INTO 
+	`myzomato`.`rest_hightlights` (`rest_id`, `option`) 
+SELECT 
+	id,
+	REPLACE( REPLACE(REPLACE (SUBSTRING_INDEX(SUBSTRING_INDEX(t.paymentOptions, ',', n.n), ',', -1), '[', ''), "]", ""), '"', "") as opt
+FROM `sszomaoto`.`restaurents` t CROSS JOIN 
+(
+	SELECT a.N + b.N * 10 + 1 n
+	FROM 
+		(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+	   ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+		ORDER BY n
+) n
+WHERE n.n <= 1 + (LENGTH(t.paymentOptions) - LENGTH(REPLACE(t.paymentOptions, ',', '')))
+
+
 11. seo keyword internal
-12. cityzonesubzone internal
+    rest_id
+    keyword varchar 50
+
+    CREATE TABLE `myzomato`.`rest_seo_keyword` ( `rest_id` INT NULL , `keyword` VARCHAR(50) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`keyword`) ) ENGINE = InnoDB;
+INSERT INTO 
+	`myzomato`.`rest_seo_keyword` (`rest_id`, `keyword`) 
+SELECT 
+	id,
+	REPLACE( REPLACE(REPLACE (SUBSTRING_INDEX(SUBSTRING_INDEX(t.seoKeywords, ',', n.n), ',', -1), '[', ''), "]", ""), '"', "") as opt
+FROM `sszomaoto`.`restaurents` t CROSS JOIN 
+(
+	SELECT a.N + b.N * 10 + 1 n
+	FROM 
+		(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+	   ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+		ORDER BY n
+) n
+WHERE n.n <= 1 + (LENGTH(t.seoKeywords) - LENGTH(REPLACE(t.seoKeywords, ',', '')))
+
+
+
+12. cityzonesubzone photourl menu url internal
+    city_id
+    zone_id
+    subzone_id
+    rest_id
+
+    CREATE TABLE `myzomato`.`internal_city_zone_subzone` ( `rest_id` INT NULL , `city_id` INT NOT NULL , `zone_id` INT NOT NULL , `subzone_id` INT NOT NULL , INDEX (`rest_id`) , INDEX (`city_id`) , INDEX (`zone_id`) , INDEX (`subzone_id`) ) ENGINE = InnoDB;
+    ALTER TABLE `internal_city_zone_subzone_p_m` ADD `photo_url` VARCHAR(255) NOT NULL AFTER `subzone_id`, ADD `menu_url` VARCHAR(255) NOT NULL AFTER `photo_url`;
+
+
+INSERT INTO 
+	`myzomato`.`internal_city_zone_subzone_p_m` (`rest_id`, `city_id`, `zone_id`, `subzone_id`, `photo_url`, `menu_url`) 
+SELECT 
+	id,
+	city_id,
+	zone_id,
+	sub_zone_id,
+	photoUrl,
+	menuUrl
+FROM `sszomaoto`.`restaurents`
+
+
+
 13. menus
+    rest_id
+    menu varchar 255
+
+    CREATE TABLE `myzomato`.`internal_menus` ( `rest_id` INT NULL , `menu` VARCHAR(255) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`menu`) ) ENGINE = InnoDB;
+
+
+INSERT INTO 
+	`myzomato`.`internal_menus` (`rest_id`, `menu`) 
+SELECT 
+	id,
+	REPLACE( REPLACE(REPLACE (SUBSTRING_INDEX(SUBSTRING_INDEX(t.menusAll, ',', n.n), ',', -1), '[', ''), "]", ""), '"', "") as opt
+FROM `sszomaoto`.`restaurents` t CROSS JOIN 
+(
+	SELECT a.N + b.N * 10 + 1 n
+	FROM 
+		(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+	   ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+		ORDER BY n
+) n
+WHERE n.n <= 1 + (LENGTH(t.menusAll) - LENGTH(REPLACE(t.menusAll, ',', '')))
+
+
+
+
+
 14. photos
 
+    rest_id
+    photo varchar 255
 
-    CREATE TABLE `myzomato`.`rest_geo_location` ( `lat` DECIMAL(10, 8) NOT NULL , `lng` DECIMAL(11, 8) NOT NULL , `rest_short_details_id` INT NOT NULL , INDEX (`lat`, `lng`, `rest_short_details_id`) ) ENGINE = InnoDB;
+
+    CREATE TABLE `myzomato`.`internal_rest_photots` ( `rest_id` INT NULL , `photo_url` VARCHAR(255) NOT NULL , INDEX (`rest_id`) , FULLTEXT (`photo_url`) ) ENGINE = InnoDB;
+
+    INSERT INTO 
+	`myzomato`.`internal_rest_photos` (`rest_id`, `photo_url`) 
+SELECT 
+	id,
+	REPLACE( REPLACE(REPLACE (SUBSTRING_INDEX(SUBSTRING_INDEX(t.photoUrl, ',', n.n), ',', -1), '[', ''), "]", ""), '"', "") as opt
+FROM `sszomaoto`.`restaurents` t CROSS JOIN 
+(
+	SELECT a.N + b.N * 10 + 1 n
+	FROM 
+		(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) a
+	   ,(SELECT 0 AS N UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) b
+		ORDER BY n
+) n
+WHERE n.n <= 1 + (LENGTH(t.photoUrl) - LENGTH(REPLACE(t.photoUrl, ',', '')))
 
 
 

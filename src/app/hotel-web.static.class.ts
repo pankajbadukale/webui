@@ -19,6 +19,7 @@ export class urls {
   }
 
   public static restInfo() {
-    return "http://localhost:8080/api/restaurant/getRestaurentInfo";
+    //return "http://localhost:8080/api/restaurant/getRestaurentInfo";
+    return `http://localhost:4200/vendor/api/rest_full_details.json`;
   }
 }

@@ -20,7 +20,7 @@ import { defaultImages } from '../hotel-web.static.class';
   selector: 'app-hotel',
   templateUrl: 'hotel.component.html',
   directives: [GoogleMapComponent, HotelListComponent, HotelDetailsComponent, NgClass, ROUTER_DIRECTIVES],
-  providers: [HotelService, defaultImages, ANGULAR2_GOOGLE_MAPS_PROVIDERS]
+  providers: [defaultImages, ANGULAR2_GOOGLE_MAPS_PROVIDERS]
 })
 export class HotelComponent implements OnInit {
 

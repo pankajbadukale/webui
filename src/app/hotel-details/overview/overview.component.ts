@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HotelBusService } from '../../hotel-bus.service';
 
+
 @Component({
   moduleId: module.id,
   selector: 'app-overview',
@@ -10,7 +11,7 @@ import { HotelBusService } from '../../hotel-bus.service';
 export class OverviewComponent implements OnInit {
 
   constructor(private _hbs: HotelBusService) {
-    console.log(this._hbs.currentHoelSelected);
+    
   }
 
   ngOnInit() {

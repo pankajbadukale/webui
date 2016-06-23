@@ -23,9 +23,10 @@ export class HotelBusService {
     lng: 0
   };
 
-  currentHoelSelected: Object = {};
+  private _currentHotelSelected: Object = {};
 
   public centerChange:EventEmitter<LatLngLiteral> = new EventEmitter();
+  public currentHotelDataChanged: EventEmitter<Object> = new EventEmitter(); 
 
   pageView: string;
 
@@ -72,6 +73,15 @@ export class HotelBusService {
     }
 
     newMarkers ? this.addUserMarker() : null;
+  }
+
+  set currentHotelSelected(data: Object) {
+    this._currentHotelSelected = data;
+    this.currentHotelDataChanged.next(this._currentHotelSelected);
+  }
+
+  get currentHotelSelected(): Object {
+    return this._currentHotelSelected;
   }
 
 /**

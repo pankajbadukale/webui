@@ -11,13 +11,14 @@ import { HotelComponent } from './hotel/hotel.component';
 import { HotelDetailsComponent } from './hotel-details/hotel-details.component';
 
 import { HotelBusService } from './hotel-bus.service';
+import { HotelService } from './hotel/hotel.service';
 
 @Component({
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
   directives: [HeaderComponent, FooterComponent, NgClass, ROUTER_DIRECTIVES, HotelComponent],
-  providers: [HTTP_PROVIDERS, ANGULAR2_GOOGLE_MAPS_PROVIDERS, ROUTER_PROVIDERS, HotelBusService]
+  providers: [HTTP_PROVIDERS, ANGULAR2_GOOGLE_MAPS_PROVIDERS, ROUTER_PROVIDERS, HotelBusService, HotelService]
 })
 @Routes([
    {  path: '/hdetails', component: HotelDetailsComponent},

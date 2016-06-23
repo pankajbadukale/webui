@@ -15,6 +15,12 @@ export class HotelService {
 
   constructor (private http: Http) {}
 
+  getRestauretnInfo() {// for just keep parameter null
+    return this.http.get(urls.restInfo())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   nearestRestaurants (latLon: geoLocation): any {
     return this.http.get(urls.nearbyRestUrl(latLon))
                     .map(this.extractData)

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HotelBusService } from '../../hotel-bus.service';
+
 @Component({
   moduleId: module.id,
   selector: 'app-overview',
-  templateUrl: 'overview.component.html',
-  styleUrls: ['overview.component.css']
+  templateUrl: 'overview.component.html'
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() {}
+  constructor(private _hbs: HotelBusService) {
+    console.log(this._hbs.currentHoelSelected);
+  }
 
   ngOnInit() {
   }

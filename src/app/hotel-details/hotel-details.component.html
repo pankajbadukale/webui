@@ -14,21 +14,15 @@
 <div class="col-md-12">
   <div class="clearfix control-buttons"> 
     <div class="btn-group inline"> 
-      <div class="btn btn-default">Overview</div> 
-      <div class="btn btn-default">Menu</div>
-      <div class="btn btn-default">Photos</div>
-      <div class="btn btn-default">Reviews</div>
-      <div class="btn btn-default">Gmap</div> 
+      <a class="btn btn-default" [routerLink]="['./overview']">overview</a>
+      <a class="btn btn-default" [routerLink]="['./feedback']">feeback</a>
+      <a class="btn btn-default" [routerLink]="['./review']">review</a>
+      <a class="btn btn-default" [routerLink]="['./menu']">menu</a>
+      <a class="btn btn-default" [routerLink]="['./photo']">photo</a>
+      <a class="btn btn-default" [routerLink]="['./faq']">Faw</a>
     </div>
   </div>
 </div>
-<!--Content-->
 <div class="col-md-12">
-      <a [routerLink]="['./overview']">overview</a>
-      <a [routerLink]="['./feedback']">feeback</a>
-      <a [routerLink]="['./review']">review</a>
-      <a [routerLink]="['./menu']">menu</a>
-      <a [routerLink]="['./photo']">photo</a>
-      <a [routerLink]="['./faq']">Faw</a>
-      <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

@@ -17,4 +17,8 @@ export class urls {
     let reqURL = `http://localhost:4200/vendor/api/rest__details.json`;
     return reqURL;
   }
+
+  public static restInfo() {
+    return "http://localhost:8080/api/restaurant/getRestaurentInfo";
+  }
 }

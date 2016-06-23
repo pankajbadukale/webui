@@ -23,6 +23,8 @@ export class HotelBusService {
     lng: 0
   };
 
+  currentHoelSelected: Object = {};
+
   public centerChange:EventEmitter<LatLngLiteral> = new EventEmitter();
 
   pageView: string;

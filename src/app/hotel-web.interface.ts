@@ -27,3 +27,20 @@ export interface shortDetails {
     rest_header_image?: string,
     cusine?: string
 }
+
+export interface fullDatails {
+    rest_short_details_id: number,
+    rest_header_title: string,
+    rest_header_image?: string,
+    rest_address?: string,
+    rest_known_for?: string,
+    cusines?: string,
+    lat?: number,
+    lng?: number,
+    rest_contact?: string,
+    timetable?: any,
+    highlights?: string,
+    cost_tooltip?: any,
+    payment?: string,
+    seo?: string
+}

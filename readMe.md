@@ -272,3 +272,167 @@ C:\Windows\System32\cmd.exe
 
 Google Map Icons
 http://kml4earth.appspot.com/icons.html
+
+
+
+SELECT 
+	R.rest_short_details_id, R.rest_header_title, R.rest_header_image, R.rest_address, R.rest_known_for, 
+	GROUP_CONCAT( DISTINCT( CU.cusines ) ) as cusines, 
+	G.lat, G.lng, 
+	GROUP_CONCAT( DISTINCT( C.contact ) ) as contacts, 
+	GROUP_CONCAT( DISTINCT( CONCAT('{o:', T.openat, ',c:', T.closeat, ',w:', T.weekday, '}' ) ) ) as timetable, 
+	GROUP_CONCAT( DISTINCT( H.highlight ) ) as highlights, 
+	SR.cost, 
+	GROUP_CONCAT( DISTINCT( P.option ) )  as payment_options, 
+	GROUP_CONCAT( DISTINCT( S.keyword ) ) as seo 	
+	FROM rest_short_details as R
+		INNER JOIN rest_contact_numbers as C
+			ON R.rest_short_details_id = C.rest_id 
+		INNER JOIN rest_cusines as CU 
+			ON R.rest_short_details_id = CU.rest_short_details_id 
+		INNER JOIN rest_geo_location as G 
+			ON G.rest_short_details_id = R.rest_short_details_id 
+		INNER JOIN rest_hightlights as H 
+			ON R.rest_short_details_id = H.rest_id 
+		INNER JOIN rest_payment_options as P 
+			ON R.rest_short_details_id = P.rest_id 
+		INNER JOIN rest_seo_keyword as S 
+			ON R.rest_short_details_id = S.rest_id 
+		INNER JOIN rest_timetable as T 
+			ON R.rest_short_details_id = T.rest_id 
+		INNER JOIN rest_cost as SR 
+			ON R.rest_short_details_id = SR.rest_id 
+WHERE R.rest_short_details_id = ${id}
+GROUP BY C.rest_id, CU.rest_short_details_id, H.rest_id, P.rest_id, S.rest_id, T.rest_id
+
+
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id,  
+	CONCAT('[', GROUP_CONCAT(DISTINCT( CONCAT('{o:', T.openat, ',c:', T.closeat, ',w:', T.weekday, '}' ) ) ), ']') as timetable 
+	FROM rest_short_details as R
+		INNER JOIN rest_timetable as T 
+			ON R.rest_short_details_id = T.rest_id 
+ GROUP BY T.rest_id
+
+
+
+
+ UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.timetable = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+
+INSERT INTO tmp (id, val)
+SELECT 
+	R.rest_short_details_id, 
+	GROUP_CONCAT( DISTINCT( H.highlight ) ) as highlights 
+	FROM rest_short_details as R
+		INNER JOIN rest_hightlights as H 
+			ON R.rest_short_details_id = H.rest_id 
+GROUP BY H.rest_id
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.highlights = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id, 
+	GROUP_CONCAT( DISTINCT( C.contact ) ) as contacts 
+	FROM rest_short_details as R
+		INNER JOIN rest_contact_numbers as C
+			ON R.rest_short_details_id = C.rest_id 
+GROUP BY C.rest_id
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.rest_contact = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id, 
+	GROUP_CONCAT( DISTINCT( P.option ) )  as payment_options
+	FROM rest_short_details as R
+		INNER JOIN rest_payment_options as P 
+			ON R.rest_short_details_id = P.rest_id 
+GROUP BY P.rest_id
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.payment = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id, 
+	GROUP_CONCAT( DISTINCT( S.keyword ) ) as seo 	
+	FROM rest_short_details as R
+		INNER JOIN rest_seo_keyword as S 
+			ON R.rest_short_details_id = S.rest_id 
+GROUP BY S.rest_id
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.seo = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+
+UPDATE rest__details 
+	INNER JOIN rest_geo_location 
+		ON rest_geo_location.rest_short_details_id = rest__details.rest_short_details_id 
+	SET rest__details.lat = rest_geo_location.lat 
+WHERE rest__details.rest_short_details_id = rest_geo_location.rest_short_details_id
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id,  
+	G.lat 
+	FROM rest_short_details as R
+		INNER JOIN rest_geo_location as G 
+			ON G.rest_short_details_id = R.rest_short_details_id 
+
+
+ 
+
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id,  
+	G.lng 
+	FROM rest_short_details as R
+		INNER JOIN rest_geo_location as G 
+			ON G.rest_short_details_id = R.rest_short_details_id
+
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.lng = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id
+
+
+
+INSERT INTO tmp (id, val) 
+SELECT 
+	R.rest_short_details_id,  
+	SR.cost 
+	FROM rest_short_details as R
+		INNER JOIN rest_cost as SR 
+			ON R.rest_short_details_id = SR.rest_id 
+
+
+UPDATE rest__details 
+	INNER JOIN tmp 
+		ON tmp.id = rest__details.rest_short_details_id 
+	SET rest__details.cost_tooltip = tmp.val
+WHERE rest__details.rest_short_details_id = tmp.id

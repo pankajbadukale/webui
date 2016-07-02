@@ -1,0 +1,24 @@
+<sebm-google-map 
+      [latitude]="_dataBus.myLocation.lat"
+      [longitude]="_dataBus.myLocation.lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      (mapClick)="mapClicked($event)">
+       <app-google-map-controller></app-google-map-controller> 
+      <sebm-google-map-marker 
+          *ngFor="let m of _dataBus.geoMarker; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+          
+        <sebm-google-map-info-window>
+            {{i}}
+        </sebm-google-map-info-window>
+        
+      </sebm-google-map-marker>
+
+    </sebm-google-map>

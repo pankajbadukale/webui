@@ -30,26 +30,30 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared',
-  'app/google-map',
-  'app/filter-hotel',
-  'app/search-hotel',
-  'app/hotel-list',
-  'app/hotel-details',
-  'app/+restaurants-in-city',
-  'app/header',
-  'app/footer',
-  'app/user',
-  'app/google-map-controller',
+  'app/util',
+
   'app/hotel',
-  'app/overview',
-  'app/photo',
-  'app/menu',
-  'app/review',
-  'app/feedback',
-  'app/+pr',
-  'app/+pr/+ok',
-  'app/faq',
+  'app/hotel/shared',
+  'app/hotel/shared/hotel-details',
+  'app/hotel/shared/hotel-details/shared',
+  'app/hotel/shared/hotel-details/shared/faq',
+  'app/hotel/shared/hotel-details/shared/feedback',
+  'app/hotel/shared/hotel-details/shared/menu',
+  'app/hotel/shared/hotel-details/shared/overview',
+  'app/hotel/shared/hotel-details/shared/photo',
+  'app/hotel/shared/hotel-details/shared/review',
+  'app/hotel/shared/hotel-list/',
+  'app/hotel/shared/search-hotel/',
+
+  'app/gmap',
+  'app/gmap/shared/',
+  'app/gmap/shared/google-map',
+  'app/gmap/shared/google-map-controller',
+
+  'app/layout',
+  'app/layout/shared',
+  'app/layout/shared/header',
+  'app/layout/shared/footer'
   /** @cli-barrel */
 ];
 

@@ -1,14 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
-import { Observable }     from 'rxjs/Observable';
+import { Injectable, Http, Response, Observable } from '../framework';
 //http://stackoverflow.com/questions/36947748/angular-2-beta-17-property-map-does-not-exist-on-type-observableresponse
 import 'rxjs/add/operator/map';
 //http://stackoverflow.com/questions/37073705/property-catch-does-not-exist-on-type-observableany
 import 'rxjs/add/operator/catch';
 
-import { shortDetails, geoLocation } from '../hotel-web.interface';
-import { urls } from '../hotel-web.static.class';
+import { shortDetails, geoLocation, urls } from '../util';
 
 @Injectable()
 export class HotelService {

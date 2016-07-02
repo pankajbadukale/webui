@@ -29,3 +29,15 @@ export {
 export { 
   Observable as Observable 
 } from 'rxjs/Observable';
+
+export {
+  MapsAPILoader as MapsAPILoader,
+  NoOpMapsAPILoader as NoOpMapsAPILoader,
+  MouseEvent as MouseEvent,
+  ANGULAR2_GOOGLE_MAPS_PROVIDERS as ANGULAR2_GOOGLE_MAPS_PROVIDERS,
+  ANGULAR2_GOOGLE_MAPS_DIRECTIVES as ANGULAR2_GOOGLE_MAPS_DIRECTIVES
+} from 'angular2-google-maps/core';
+
+export { 
+  GoogleMapsAPIWrapper as GoogleMapsAPIWrapper 
+} from 'angular2-google-maps/services/google-maps-api-wrapper';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '../framework';
 
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/services/google-maps-api-wrapper';
 //import { MarkerOptions } from 'angular2-google-maps/services/google-maps-types';

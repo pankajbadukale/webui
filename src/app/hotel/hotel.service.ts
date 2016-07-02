@@ -17,7 +17,7 @@ export class HotelService {
 
   getRestauretnInfo() {// for just keep parameter null
     return this.http.get(urls.restInfo())
-                    .map(this.extractData)
+                    .map(this.extractRestInfo)
                     .catch(this.handleError);
   }
 
@@ -25,6 +25,19 @@ export class HotelService {
     return this.http.get(urls.nearbyRestUrl(latLon))
                     .map(this.extractData)
                     .catch(this.handleError);
+  }
+
+  private extractRestInfo( data: Response ) {
+    let body = data.json()[0];
+    /*body.cost_tooltip = JSON.parse(body.cost_tooltip);
+    body.highlights = body.highlights.split(",");
+    body.payment = body.payment.split(",");
+    body.rest_contact = body.rest_contact.split(",");
+    body.seo = body.seo.split(",");
+    body.timetable = JSON.parse(body.timetable);*/
+    
+
+    return body || { };   
   }
 
   private extractData(res: Response) {

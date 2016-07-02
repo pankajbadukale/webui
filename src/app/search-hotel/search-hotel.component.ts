@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, OnInit, NgClass } from '../framework';
 
 import { HotelBusService } from '../hotel-bus.service';
 

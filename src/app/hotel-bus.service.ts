@@ -1,11 +1,6 @@
 declare var window: any;
 
-
-
-
-import { Injectable, EventEmitter } from '@angular/core';
-
-import { marker, shortDetails, geoLocation, LatLngLiteral } from './hotel-web.interface';
+import { Injectable, EventEmitter, marker, shortDetails, geoLocation, LatLngLiteral } from './framework';
 
 @Injectable()
 export class HotelBusService {
@@ -23,7 +18,7 @@ export class HotelBusService {
     lng: 0
   };
 
-  private _currentHotelSelected: Object = {};
+  public currentHotelSelected: Object = {};
 
   public centerChange:EventEmitter<LatLngLiteral> = new EventEmitter();
   public currentHotelDataChanged: EventEmitter<Object> = new EventEmitter(); 
@@ -54,7 +49,6 @@ export class HotelBusService {
  * @input String 
  */
   setPageView( pageView?: string ) {
-    console.log("form service", pageView);
     this.pageView = pageView || 'both';
   }
 
@@ -75,13 +69,9 @@ export class HotelBusService {
     newMarkers ? this.addUserMarker() : null;
   }
 
-  set currentHotelSelected(data: Object) {
-    this._currentHotelSelected = data;
-    this.currentHotelDataChanged.next(this._currentHotelSelected);
-  }
-
-  get currentHotelSelected(): Object {
-    return this._currentHotelSelected;
+  saveHotel(data: Object) {
+    this.currentHotelSelected = data;
+    this.currentHotelDataChanged.next(this.currentHotelSelected);
   }
 
 /**

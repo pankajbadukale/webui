@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { ROUTER_DIRECTIVES, Routes, Router } from '@angular/router';
+import { Component, OnInit, NgFor, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes, Router } from '../framework';
 
 import { GoogleMapComponent } from '../google-map/google-map.component';
 
@@ -47,8 +45,7 @@ export class HotelDetailsComponent implements OnInit {
 
   constructor(private _hotelBusService: HotelBusService, private _hs: HotelService) {
     this._hs.getRestauretnInfo().subscribe( result => {
-      this._hotelBusService.currentHotelSelected = result[0];
-      console.log(this._hotelBusService.currentHotelSelected);
+      this._hotelBusService.saveHotel(result[0]);
     });
 
     this.defaultImgUrl = defaultImages.restaurent;

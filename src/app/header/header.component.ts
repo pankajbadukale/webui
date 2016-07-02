@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
+import { Component, OnInit, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '../framework';
 
 import { SearchHotelComponent } from '../search-hotel/search-hotel.component';
 

@@ -436,3 +436,12 @@ UPDATE rest__details
 		ON tmp.id = rest__details.rest_short_details_id 
 	SET rest__details.cost_tooltip = tmp.val
 WHERE rest__details.rest_short_details_id = tmp.id
+
+
+
+
+##################################
+-------===== NODE JS =====--------
+##################################
+If after installing python for node sass .NET framework throw error then install this.
+npm install node-gyp

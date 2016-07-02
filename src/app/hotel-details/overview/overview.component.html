@@ -1,10 +1,12 @@
+<div *ngIf="showit">
+
 <!--knowfor row-->
 <div class="col-md-12">
-  it is known for
+  {{_hbs.currentHotelSelected.rest_known_for || "NA"}}
 </div>
 <!--cost row-->
 <div class="col-md-12">
-  this cost for this hotel is
+  {{_hbs.currentHotelSelected.cost_tooltip}}
 </div>
 <!--cusines grid-->
 <div class="col-md-3">
@@ -25,4 +27,6 @@
 <!--contact row-->
 <div class="col-md-12">
   contact numbers
+</div>
+
 </div>

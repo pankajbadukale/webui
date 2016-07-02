@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
-import { Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
-
+import { Component, OnInit, NgClass, NgFor, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from  '../framework';
 
 import { HotelDetailsComponent } from '../hotel-details/hotel-details.component';
 import { SearchHotelComponent } from '../search-hotel/search-hotel.component';

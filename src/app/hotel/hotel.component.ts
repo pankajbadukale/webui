@@ -1,7 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { HTTP_PROVIDERS } from '@angular/http';
+import { Component, OnInit, TemplateRef, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes, NgClass } from '../framework';
 
 import { ANGULAR2_GOOGLE_MAPS_PROVIDERS } from 'angular2-google-maps/core';
 

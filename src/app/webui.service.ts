@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Injectable, Http, Response, Observable } from './framework';
 
-import { Observable }     from 'rxjs/Observable';
 //http://stackoverflow.com/questions/36947748/angular-2-beta-17-property-map-does-not-exist-on-type-observableresponse
 import 'rxjs/add/operator/map';
 //http://stackoverflow.com/questions/37073705/property-catch-does-not-exist-on-type-observableany

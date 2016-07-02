@@ -1,4 +1,4 @@
-import { geoLocation } from './hotel-web.interface';
+import { geoLocation } from './framework';
 
 /**
  * 

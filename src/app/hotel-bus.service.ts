@@ -1,6 +1,8 @@
 declare var window: any;
 
-import { Injectable, EventEmitter, marker, shortDetails, geoLocation, LatLngLiteral } from './framework';
+import { Injectable, EventEmitter } from './framework';
+
+import { marker, shortDetails, geoLocation, LatLngLiteral } from './hotel-web.interface';
 
 @Injectable()
 export class HotelBusService {

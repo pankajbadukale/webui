@@ -29,6 +29,3 @@ export {
 export { 
   Observable as Observable 
 } from 'rxjs/Observable';
-
-export * from './hotel-web.interface';
-export * from './hotel-web.enum.ts';

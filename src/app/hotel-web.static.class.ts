@@ -1,8 +1,5 @@
-import { geoLocation } from './framework';
+import { geoLocation } from './hotel-web.interface';
 
-/**
- * 
- */
 export class defaultImages {
   public static restaurent: string = "vendor/api/market.svg";
 }

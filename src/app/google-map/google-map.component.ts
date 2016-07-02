@@ -1,4 +1,4 @@
-import { Component, OnInit,ElementRef } from '../framework';
+import { Component, OnInit } from '../framework';
 
 import { GoogleMapControllerComponent } from '../google-map-controller';
 

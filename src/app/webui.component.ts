@@ -1,17 +1,18 @@
 import { Component, TemplateRef, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes, NgClass, HTTP_PROVIDERS, ANGULAR2_GOOGLE_MAPS_PROVIDERS } from './framework';
 
 import { HeaderComponent, FooterComponent } from './layout';
-import { HotelComponent, HotelService } from './hotel';
+import { HotelComponent, HotelService, HotelDetailsComponent } from './hotel';
 import { DataBusService } from './util';
 
 @Component({
   moduleId: module.id,
   selector: 'webui-app',
   templateUrl: 'webui.component.html',
-  directives: [HeaderComponent, FooterComponent, NgClass, ROUTER_DIRECTIVES, HotelComponent],
+  directives: [HeaderComponent, FooterComponent, NgClass, ROUTER_DIRECTIVES],
   providers: [HTTP_PROVIDERS, ANGULAR2_GOOGLE_MAPS_PROVIDERS, ROUTER_PROVIDERS, DataBusService, HotelService]
 })
 @Routes([
+  {  path: '/hotel', component: HotelDetailsComponent},
    {  path: '/', component: HotelComponent}
 ])
 export class WebuiAppComponent {

@@ -161,7 +161,10 @@
         "**/node_modules": true,
         "**/tmp": true,
         "**/typings": true,
-        "**/.*": true
+        "**/.*": true,
+		"**/dist": true,
+		"**/e2e": true,
+		"**/ng2" : true
     },
 
     // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
@@ -209,7 +212,9 @@
         "**/tmp": true,
         "**/dist": true,
         "**/public": true,
-        "**/api": true
+        "**/api": true,
+		"**/e2e": true,
+		"**/ng2" : true
     },
 
 

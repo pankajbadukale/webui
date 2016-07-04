@@ -2,7 +2,7 @@ import { Component, TemplateRef, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Rou
 
 import { HeaderComponent, FooterComponent } from './layout';
 import { HotelComponent, HotelService, HotelDetailsComponent } from './hotel';
-import { DataBusService } from './util';
+import { DataBusService, eLang } from './util';
 
 @Component({
   moduleId: module.id,
@@ -17,9 +17,8 @@ import { DataBusService } from './util';
 ])
 export class WebuiAppComponent {
     @lang
-    
+    lang: eLang;
     title: string;
-    public lang: any;
     constructor(private _dataBus: DataBusService) {
       this.title= 'app';
       //get getLocation
@@ -31,7 +30,7 @@ export class WebuiAppComponent {
               });
           });
       } else {
-        console.log(`Geolocation is not supported by this browser.`);
+        console.log(this.lang[eLang.geoLocError]);
       }
     }
 }

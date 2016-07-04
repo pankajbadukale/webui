@@ -1,3 +1,5 @@
 export class EN {
-    public static consoleErr: string = 'This is error message';
+    public static geoLocError: string = `Geolocation is not supported by this browser.`;
+    public static ServerError: string = `Service error`;
+
 }

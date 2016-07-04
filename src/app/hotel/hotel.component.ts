@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes, NgClass } from '../framework';
+import { Component, OnInit, TemplateRef, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes, NgClass, FOLDER, CDomNode } from '../framework';
 import { GoogleMapComponent } from '../gmap';
 import { HotelListComponent, HotelDetailsComponent } from './shared';
 import { HotelService } from './hotel.service';
@@ -7,8 +7,8 @@ import { DataBusService, defaultImages } from '../util';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-hotel',
-  templateUrl: 'hotel.component.html',
+  selector: CDomNode.hotel,
+  templateUrl: FOLDER.TEMPLATE(),
   directives: [GoogleMapComponent, HotelListComponent, HotelDetailsComponent, NgClass, ROUTER_DIRECTIVES],
   providers: [defaultImages]
 })

@@ -1,14 +1,15 @@
-import { Injectable, Http, Response, Observable } from '../framework';
+import { Injectable, Http, Response, Observable, lang } from '../framework';
 //http://stackoverflow.com/questions/36947748/angular-2-beta-17-property-map-does-not-exist-on-type-observableresponse
 import 'rxjs/add/operator/map';
 //http://stackoverflow.com/questions/37073705/property-catch-does-not-exist-on-type-observableany
 import 'rxjs/add/operator/catch';
 
-import { shortDetails, geoLocation, urls } from '../util';
+import { shortDetails, geoLocation, urls, eLang } from '../util';
 
 @Injectable()
 export class HotelService {
-
+  @lang
+  lang: eLang;
   constructor (private http: Http) {}
 
   getRestauretnInfo() {// for just keep parameter null
@@ -45,7 +46,7 @@ export class HotelService {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      error.status ? `${error.status} - ${error.statusText}` : this.lang[eLang.ServerError];
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
   }

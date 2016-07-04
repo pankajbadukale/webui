@@ -1,9 +1,9 @@
-import { Component, OnInit } from '../../../framework';
+import { Component, OnInit, FOLDER, CDomNode } from '../../../framework';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-footer',
-  templateUrl: 'footer.component.html'
+  selector: CDomNode.footer,
+  templateUrl: FOLDER.TEMPLATE()
 })
 export class FooterComponent implements OnInit {
 

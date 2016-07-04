@@ -1,6 +1,0 @@
-    <div [ngClass]="{'col-md-8': _dataBus.pageView == 'both' , 'col-md-12': _dataBus.pageView == 'map', 'hide': _dataBus.pageView == 'list'}">
-      <app-google-map></app-google-map>
-    </div>
-    <div [ngClass]="{'col-md-4': _dataBus.pageView == 'both' , 'col-md-12': _dataBus.pageView == 'list', 'hide': _dataBus.pageView == 'map'}">
-        <app-hotel-list></app-hotel-list>
-    </div>

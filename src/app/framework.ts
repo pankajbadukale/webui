@@ -43,7 +43,7 @@ export {
 } from 'angular2-google-maps/services/google-maps-api-wrapper';
 
 
-
+/*-----------------======CUSTOM EXPORT DECLARATION=====--------------------*/
 import { Device } from './util';
 export class clientDevice {
   public static device(device?: Device) {
@@ -57,6 +57,9 @@ export class FOLDER {
 }
 export class CDomNode {
   public static app: string = 'webui-app';
+  public static header:string = 'app-header';
+  public static footer:string = 'app-footer';
+  public static hotel:string = 'app-hotel';
 }
 
 /*--------------========DECORATORS==========-----------------*/

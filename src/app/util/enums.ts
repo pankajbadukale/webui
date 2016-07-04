@@ -29,5 +29,7 @@ export enum Device {
 }
 
 export enum eLang {
-  consoleErr
+  consoleErr,
+  geoLocError,
+  ServerError
 }

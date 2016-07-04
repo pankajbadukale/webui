@@ -162,7 +162,6 @@
         "**/tmp": true,
         "**/typings": true,
         "**/.*": true,
-		"**/dist": true,
 		"**/e2e": true,
 		"**/ng2" : true
     },

@@ -41,3 +41,27 @@ export {
 export { 
   GoogleMapsAPIWrapper as GoogleMapsAPIWrapper 
 } from 'angular2-google-maps/services/google-maps-api-wrapper';
+
+
+
+import { Device } from './util';
+export class clientDevice {
+  public static device(device?: Device) {
+    return device !== undefined ? Device[device] : Device[Device.web];
+  }
+}
+export class FOLDER {
+  public static TEMPLATE (other?: string) {
+    return other !== undefined && other !== '' ? `templates/${clientDevice.device()}/${other}.html` : `templates/${clientDevice.device()}/component.html`;
+  }
+}
+export class CDomNode {
+  public static app: string = 'webui-app';
+}
+
+/*--------------========DECORATORS==========-----------------*/
+// Decorator to insert language object in each class where ever required using property accessor
+import { LANG } from './util';
+export function lang(target, key) {
+  target.lang = LANG;
+}

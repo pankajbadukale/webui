@@ -13,6 +13,7 @@ import { DataBusService, defaultImages } from '../util';
   providers: [defaultImages]
 })
 export class HotelComponent implements OnInit {
+  public static path: string = '/';
 
   constructor( private _hService: HotelService, private _dataBus: DataBusService) {
       //get getLocation

@@ -31,6 +31,8 @@ import {  defaultImages } from '../../../util';
   { path: '/faq', component: FaqComponent },
 ])
 export class HotelDetailsComponent implements OnInit {
+  public static path: string = '/hotel';
+  
   defaultImgUrl: string;
 
   urls: Object[];
@@ -55,5 +57,4 @@ private _hs: HotelService.getRestauretnInfo().subscribe( result => {
 
   ngOnInit() {
   }
-
 }

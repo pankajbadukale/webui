@@ -60,6 +60,8 @@ export class CDomNode {
   public static header:string = 'app-header';
   public static footer:string = 'app-footer';
   public static hotel:string = 'app-hotel';
+  public static hotelSearch:string = 'app-search-hotel';
+  public static hotelList: string = 'app-hotel-list';
 }
 
 /*--------------========DECORATORS==========-----------------*/
